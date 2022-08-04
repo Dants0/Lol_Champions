@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import './champions.css'
 import Jinx from '../assets/jinxlogo.png'
+import GitHub from '../assets/GitHub-Mark-32px.png'
+import LinkedIn from '../assets/icons8-linkedin-48.png'
 
 const Champions = () => {
     const [searchText, setSearchText] = useState('');
@@ -12,16 +14,22 @@ const Champions = () => {
 
     async function searchChampion(e) {
         let ApiCall = `http://ddragon.leagueoflegends.com/cdn/12.14.1/data/pt_BR/champion/${searchText}.json`
-
-        await axios.get(ApiCall).then(function (response) {
-            const data = response.data.data[`${searchText}`]
-            console.log(data)
-            setChampion(data)
-            setSkin(data.skins)
-            setSpeels(data.spells)
-        }).catch(err => {
-            console.log(err);
-        });
+        if (searchText == false || champion == null) {
+            alert('Adicione um nome!');
+        } else if(champion.id == '') {
+            alert('Campeão não existe!');
+        }
+         else {
+            await axios.get(ApiCall).then(function (response) {
+                const data = response.data.data[`${searchText}`]
+                console.log(data)
+                setChampion(data)
+                setSkin(data.skins)
+                setSpeels(data.spells)
+            }).catch(err => {
+                console.log(err);
+            });
+        }
     }
 
     const splashArt = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name + '_0'}.jpg`
@@ -31,7 +39,7 @@ const Champions = () => {
     const squareSkin = `http://ddragon.leagueoflegends.com/cdn/12.14.1/img/champion/${champion.name}`
 
     console.log(spells)
-    
+
     return (
         <>
             <div className="container">
@@ -47,23 +55,25 @@ const Champions = () => {
                     JSON.stringify(champion) != '{}' ?
 
                         <>
-                            <div className="contentChampion">
-                                <h1 className="titleChampion">Campeão encontrado</h1>
-                                <span>Nome: {champion.id}</span>
-                                <span>Titulo: {champion.title}</span>
-                                <img src={splashArt} alt="SplashArt" className="splashArtImg" />
+                            <div className="wrapper">
+                                <div className="contentChampion">
+                                    <h1 className="titleChampion">Campeão encontrado</h1>
+                                    <span>Nome: {champion.id}</span>
+                                    <span>Titulo: {champion.title}</span>
+                                    <img src={splashArt} alt="SplashArt" className="splashArtImg" />
+                                </div>
                                 <div className="infos">
-                                    <span>Lore: {champion.lore}</span>
-                                    <h2>Estilo De Jogo: {champion.tags[0]}</h2>
                                     <img src={squareSkin + '.png'} alt="" className='LogoChampion' />
-                                    <h2>Nome da Passiva: {champion.passive.name}</h2>
-                                    <h2>Descrição da Passiva: {champion.passive.description}</h2>
+                                    <p className='loreChampion'>Lore: {champion.lore}</p>
+                                    <p>Estilo De Jogo: {champion.tags[0]}</p>
+                                    <p>Nome da Passiva: {champion.passive.name}</p>
+                                    <p>Descrição da Passiva: {champion.passive.description}</p>
                                     <img src={`http://ddragon.leagueoflegends.com/cdn/12.14.1/img/passive/${champion.image.full}`} alt="" />
-                                    <h2>Habilidade_1: {spells[0].name}</h2>
-                                    <h2>Habilidade_2: {spells[1].name}</h2>
-                                    <h2>Habilidade_3: {spells[2].name}</h2>
-                                    <h2>Ultimate: {spells[3].name + '. ' + spells[3].description}</h2>
-                                    <h2>Estilo De Jogo: {champion.tags}</h2>
+                                    <p>Habilidade_1: {spells[0].name}</p>
+                                    <p>Habilidade_2: {spells[1].name}</p>
+                                    <p>Habilidade_3: {spells[2].name}</p>
+                                    <p>Ultimate: {spells[3].name + '. ' + spells[3].description}</p>
+                                    <p>Estilo De Jogo: {champion.tags}</p>
                                 </div>
                             </div>
 
@@ -98,7 +108,6 @@ const Champions = () => {
                                         <>
                                             <p>Sem Skin Recente</p>
                                         </>
-
                                 }
 
                             </div>
@@ -108,8 +117,18 @@ const Champions = () => {
 
                         <>
 
-
-
+                            <div className="box">
+                                <div className="github">
+                                    <a href="https://github.com/Dants0"><img src={GitHub} alt="" className="links"/></a>
+                                </div>
+                                <div className="linkedin">
+                                    <a href="https://www.linkedin.com/in/guilherme-góes-8b72531b0/"><img src={LinkedIn} alt="" className="links"/></a>
+                                </div>
+                            </div>
+                        <footer className="footer">
+                            <h3>Não tem conta no jogo?</h3>
+                            <a href="https://signup.leagueoflegends.com/pt-br/signup/index#/"><button className='registerBtn'>Cadastre-se agora</button></a>
+                        </footer>
                         </>
                 }
             </div>

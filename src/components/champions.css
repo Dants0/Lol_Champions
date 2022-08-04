@@ -1,9 +1,9 @@
-@font-face{
+@font-face {
     font-family: 'LeagueOfLegends';
     src: url('../assets/fonts/Friz_Quadrata_Regular.ttf')
 }
 
-.header{
+.header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -12,27 +12,34 @@
     width: 25vh;
 }
 
-.Logo{
+.Logo {
     width: 10rem;
     padding: 0.75rem;
     border-radius: 75px;
 }
 
-.Logo:hover{
+.Logo:hover {
     -webkit-animation: rotate-center 0.6s ease-in-out both;
     animation: rotate-center 0.6s ease-in-out both;
 }
 
-.LogoChampion{
+.LogoChampion {
     width: 10rem;
+    height: 10rem;
     padding: 0.75rem;
     border-radius: 75px;
     position: relative;
-    left: -2.5%;
     animation: slide-logo-champion 1s ease 0s 1 normal forwards;
 }
 
-.container{
+.LogoChampion:hover {
+    position: relative;
+    padding: 0.2rem;
+    filter: drop-shadow(4px 2px 12px rgb(146, 141, 141));
+    transition: all 0.5s ease-in-out 5s alternate forwards;
+}
+
+.container {
     display: flex;
     width: 100vh;
     flex-direction: column;
@@ -42,7 +49,7 @@
     padding: 1.5rem;
 }
 
-.championSearch{
+.championSearch {
     font-family: 'LeagueOfLegends';
     width: 20rem;
     height: 2.5rem;
@@ -54,7 +61,7 @@
     outline: none;
 }
 
-.btnSearch{
+.btnSearch {
     font-family: 'LeagueOfLegends';
     display: flex;
     justify-content: center;
@@ -62,231 +69,312 @@
     padding: 0.50rem;
     border-radius: 5px;
     width: 15rem;
-    height: 5rem;
+    height: 3rem;
     cursor: pointer;
     margin-top: 1rem;
     font-size: 20px;
     font-weight: bold;
 }
 
-.btnSearch:hover{
+.btnSearch:hover {
     transition: all 0.5s ease-in-out;
     filter: brightness(80%);
 }
 
-.estrategy{
+.estrategy {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     text-align: start;
     font-size: 25px;
 }
 
+.box{
+    display: flex;
+    justify-content: space-evenly;
+    width: 15%;
+    padding: 1rem;
+}
 
-.championStatus{
+.links{
+    background-color: transparent;
+    width: 3rem;
+    height: 3rem;
+}
+
+.links:hover{
+    position: relative;
+    padding: 0.1rem;
+    transition: all 0.5s ease-in-out 5s alternate forwards;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.loreChampion {
+    font-size: 22px;
+}
+
+.championStatus {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center; 
+    text-align: center;
 }
 
-.infos{
+.infos {
     display: flex;
-    text-align: start;
+    text-align: justify;
     flex-direction: column;
-    font-size: 28px;
+    font-size: 20px;
+    /* border: 1px solid #000; */
+    padding: 1rem;
+    width: 50rem;
+    height: 78.5rem;
 }
 
-.contentChampion{
+.contentChampion {
     display: flex;
     flex-direction: column;
     font-size: 26px;
+    width: 50rem;
+    padding: 1rem;
 }
 
-.splashArtImg{
-    position: relative;
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+
+}
+
+.registerBtn{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    width: 75rem;
+    height: 2rem;
+    width: 8rem;
+    cursor: pointer;
     border-radius: 5px;
-    border: 2px solid rgba(0,0,0,20);
+    font-family: 'LeagueOfLegends';
+    font-weight: bold;
+}
+
+.registerBtn:hover{
+    transition: all 0.5s ease-in-out;
+    filter: brightness(80%);
+}
+
+.splashArtImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50rem;
+    height: 68rem;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 20);
     -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-.splashArtImg:hover{
+.splashArtImg:hover {
     outline: 5px solid #242ecc42;
     transition: outline 0.2s ease 0s;
 }
 
-.titleChampion{
+.titleChampion {
     text-shadow: none;
 }
 
 @-webkit-keyframes rotate-center {
     0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
     }
+
     100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  @keyframes rotate-center {
-    0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-    }
-  }
-  
-
-  
-@keyframes myAnim {
-	0% {
-		animation-timing-function: ease-in;
-		opacity: 1;
-		transform: translateY(-45px);
-	}
-
-	24% {
-		opacity: 1;
-	}
-
-	40% {
-		animation-timing-function: ease-in;
-		transform: translateY(-24px);
-	}
-
-	65% {
-		animation-timing-function: ease-in;
-		transform: translateY(-12px);
-	}
-
-	82% {
-		animation-timing-function: ease-in;
-		transform: translateY(-6px);
-	}
-
-	93% {
-		animation-timing-function: ease-in;
-		transform: translateY(-4px);
-	}
-
-	25%,
-	55%,
-	75%,
-	87% {
-		animation-timing-function: ease-out;
-		transform: translateY(0px);
-	}
-
-	100% {
-		animation-timing-function: ease-out;
-		opacity: 1;
-		transform: translateY(0px);
-	}
 }
-  
+
+@keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+
+@keyframes myAnim {
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 1;
+        transform: translateY(-45px);
+    }
+
+    24% {
+        opacity: 1;
+    }
+
+    40% {
+        animation-timing-function: ease-in;
+        transform: translateY(-24px);
+    }
+
+    65% {
+        animation-timing-function: ease-in;
+        transform: translateY(-12px);
+    }
+
+    82% {
+        animation-timing-function: ease-in;
+        transform: translateY(-6px);
+    }
+
+    93% {
+        animation-timing-function: ease-in;
+        transform: translateY(-4px);
+    }
+
+    25%,
+    55%,
+    75%,
+    87% {
+        animation-timing-function: ease-out;
+        transform: translateY(0px);
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
 @-webkit-keyframes slide-in-left {
     0% {
-      -webkit-transform: translateX(-1000px);
-              transform: translateX(-1000px);
-      opacity: 0;
+        -webkit-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+        opacity: 0;
     }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
 
-  @keyframes slide-in-left {
-    0% {
-      -webkit-transform: translateX(-1000px);
-              transform: translateX(-1000px);
-      opacity: 0;
-    }
     100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
     }
-  }
-
-  @-webkit-keyframes slide-logo-champion {
-    0% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-    }
-    100% {
-      -webkit-transform: translateX(100px);
-              transform: translateX(100px);
-    }
-  }
-  @keyframes slide-logo-champion {
-    0% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-    }
-    100% {
-      -webkit-transform: translateX(100px);
-              transform: translateX(100px);
-    }
-  }
-
-  @-webkit-keyframes scale-up-center {
-    0% {
-      -webkit-transform: scale(0.5);
-              transform: scale(0.5);
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-    }
-  }
-  @keyframes scale-up-center {
-    0% {
-      -webkit-transform: scale(0.5);
-              transform: scale(0.5);
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-    }
-  }
-
-span{
-    color:#f1f1f1
 }
 
-h1{
+@keyframes slide-in-left {
+    0% {
+        -webkit-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slide-logo-champion {
+    0% {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
+    }
+
+    100% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+}
+
+@keyframes slide-logo-champion {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(10rem);
+        transform: translateX(18rem);
+    }
+}
+
+@-webkit-keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+span {
+    color: #f1f1f1
+}
+
+h1 {
     position: relative;
     animation: myAnim 2s ease 0s 1 normal forwards;
     color: #f1f1f1;
     text-shadow: 0px 0px 12px rgba(0, 75, 255, 0.96);
 }
 
-h1:hover{
-    filter:drop-shadow(0px 22px 31px #242ecc42);
+h1:hover {
+    filter: drop-shadow(0px 22px 31px #242ecc42);
 }
 
-h2{
+h2 {
     color: #f1f1f1;
 }
 
-ul{
+ul {
     color: #f1f1f1;
 }
 
-P{
+P {
     color: #f1f1f1;
+}
+
+a{
+    text-decoration: none;
+}
+
+footer{
+    border-top: 2px solid #808080;
+    height: auto;
+    margin-top: 15%;
+    width: 50%;
 }
