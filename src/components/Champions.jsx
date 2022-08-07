@@ -4,8 +4,12 @@ import './champions.css'
 import Jinx from '../assets/jinxlogo.png'
 import GitHub from '../assets/GitHub-Mark-32px.png'
 import LinkedIn from '../assets/icons8-linkedin-48.png'
+import ImageSlider from './ImageSlider'
 
 const Champions = () => {
+
+
+
     const [searchText, setSearchText] = useState('');
     const [champion, setChampion] = useState({});
     const [skin, setSkin] = useState([]);
@@ -16,10 +20,10 @@ const Champions = () => {
         let ApiCall = `http://ddragon.leagueoflegends.com/cdn/12.14.1/data/pt_BR/champion/${searchText}.json`
         if (searchText == false || champion == null) {
             alert('Adicione um nome!');
-        } else if(champion.id == '') {
+        } else if (champion.id == '') {
             alert('Campeão não existe!');
         }
-         else {
+        else {
             await axios.get(ApiCall).then(function (response) {
                 const data = response.data.data[`${searchText}`]
                 console.log(data)
@@ -38,7 +42,24 @@ const Champions = () => {
 
     const squareSkin = `http://ddragon.leagueoflegends.com/cdn/12.14.1/img/champion/${champion.name}`
 
+    const takeSkins = skin.map(id => id.num)
+
     console.log(spells)
+
+    console.log(takeSkins)
+
+    const slides = [
+        { url: urlSkin + `_${takeSkins[1]}.jpg`, title: 'skin1' },
+        { url: urlSkin + `_${takeSkins[2]}.jpg`, title: 'skin2' },
+        { url: urlSkin + `_${takeSkins[3]}.jpg`, title: 'skin3' },
+        { url: urlSkin + `_${takeSkins[4]}.jpg`, title: 'skin4' },
+    ];
+
+    const containerStyles = {
+        width: "500px",
+        height: "280px",
+        margin: "0 auto",
+    };
 
     return (
         <>
@@ -100,9 +121,9 @@ const Champions = () => {
                                     JSON.stringify(skin) != [] ?
 
                                         <>
-                                            <img src={urlSkin + `_${skin[2].num}.jpg`} alt="" className="splashArtImg" />
-                                            <img src={urlSkin + `_${skin[1].num}.jpg`} alt="" className="splashArtImg" />
-                                            <img src={urlSkin + `_${skin[3].num}.jpg`} alt="" className="splashArtImg" />
+                                            <div style={containerStyles}>
+                                                <ImageSlider slides={slides}></ImageSlider>
+                                            </div>
                                         </>
                                         :
                                         <>
@@ -119,16 +140,16 @@ const Champions = () => {
 
                             <div className="box">
                                 <div className="github">
-                                    <a href="https://github.com/Dants0"><img src={GitHub} alt="" className="links"/></a>
+                                    <a href="https://github.com/Dants0"><img src={GitHub} alt="" className="links" /></a>
                                 </div>
                                 <div className="linkedin">
-                                    <a href="https://www.linkedin.com/in/guilherme-góes-8b72531b0/"><img src={LinkedIn} alt="" className="links"/></a>
+                                    <a href="https://www.linkedin.com/in/guilherme-góes-8b72531b0/"><img src={LinkedIn} alt="" className="links" /></a>
                                 </div>
                             </div>
-                        <footer className="footer">
-                            <h3>Não tem conta no jogo?</h3>
-                            <a href="https://signup.leagueoflegends.com/pt-br/signup/index#/"><button className='registerBtn'>Cadastre-se agora</button></a>
-                        </footer>
+                            <footer className="footer">
+                                <h3>Não tem conta no jogo?</h3>
+                                <a href="https://signup.leagueoflegends.com/pt-br/signup/index#/"><button className='registerBtn'>Cadastre-se agora</button></a>
+                            </footer>
                         </>
                 }
             </div>
