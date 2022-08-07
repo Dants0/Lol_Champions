@@ -17,7 +17,7 @@ const Champions = () => {
 
 
     async function searchChampion(e) {
-        let ApiCall = `http://ddragon.leagueoflegends.com/cdn/12.14.1/data/pt_BR/champion/${searchText}.json`
+        let ApiCall = `https://ddragon.leagueoflegends.com/cdn/12.14.1/data/pt_BR/champion/${searchText}.json`
         if (searchText == false || champion == null) {
             alert('Adicione um nome!');
         } else if (champion.id == '') {
@@ -36,11 +36,11 @@ const Champions = () => {
         }
     }
 
-    const splashArt = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name + '_0'}.jpg`
+    const splashArt = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name + '_0'}.jpg`
 
-    const urlSkin = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}`
+    const urlSkin = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}`
 
-    const squareSkin = `http://ddragon.leagueoflegends.com/cdn/12.14.1/img/champion/${champion.name}`
+    const squareSkin = `https://ddragon.leagueoflegends.com/cdn/12.14.1/img/champion/${champion.name}`
 
     const takeSkins = skin.map(id => id.num)
 
@@ -89,7 +89,7 @@ const Champions = () => {
                                     <p>Estilo De Jogo: {champion.tags[0]}</p>
                                     <p>Nome da Passiva: {champion.passive.name}</p>
                                     <p>Descrição da Passiva: {champion.passive.description}</p>
-                                    <img src={`http://ddragon.leagueoflegends.com/cdn/12.14.1/img/passive/${champion.image.full}`} alt="" />
+                                    <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/passive/${champion.image.full}`} alt="" />
                                     <p>Habilidade_1: {spells[0].name}</p>
                                     <p>Habilidade_2: {spells[1].name}</p>
                                     <p>Habilidade_3: {spells[2].name}</p>
