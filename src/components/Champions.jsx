@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useRef,useState } from 'react'
 import axios from 'axios'
 import './champions.css'
 import Jinx from '../assets/jinxlogo.png'
 import GitHub from '../assets/GitHub-Mark-32px.png'
 import LinkedIn from '../assets/icons8-linkedin-48.png'
 import ImageSlider from './ImageSlider'
+import Modal from './Modal/Modal'
+// import Modal_2 from './Modal/Modal_2'
+import Titles from './Titles.js'
 
-const Champions = () => {
 
+const Champions = (props) => {
 
+    const [show, setShow] = useState(false);
+    const [nextShow, setNextShow] = useState(false);
+    const [continueShow, setContinueShow] = useState(false);
+    const [finalShow, setFinalShow] = useState(false);
 
     const [searchText, setSearchText] = useState('');
     const [champion, setChampion] = useState({});
@@ -44,10 +51,6 @@ const Champions = () => {
 
     const takeSkins = skin.map(id => id.num)
 
-    console.log(spells)
-
-    console.log(takeSkins)
-
     const slides = [
         { url: urlSkin + `_${takeSkins[1]}.jpg`, title: 'skin1' },
         { url: urlSkin + `_${takeSkins[2]}.jpg`, title: 'skin2' },
@@ -61,6 +64,12 @@ const Champions = () => {
         margin: "0 auto",
     };
 
+
+    function Title_1(){
+        Titles('Test')
+        return <Modal title={spells[0].name}/>
+    }
+
     return (
         <>
             <div className="container">
@@ -70,31 +79,68 @@ const Champions = () => {
                 </div>
                 <input type="text" placeholder="Nome do Campeão" onChange={e => setSearchText(e.target.value)} className="championSearch" />
                 <button onClick={e => searchChampion(e)} className="btnSearch">Status Do Campeão</button>
+
+                <div className="testModal">
+
+                </div>
             </div>
             <div className="championStatus">
                 {
                     JSON.stringify(champion) != '{}' ?
 
                         <>
+
                             <div className="wrapper">
                                 <div className="contentChampion">
                                     <h1 className="titleChampion">Campeão encontrado</h1>
                                     <span>Nome: {champion.id}</span>
                                     <span>Titulo: {champion.title}</span>
                                     <img src={splashArt} alt="SplashArt" className="splashArtImg" />
+                                    <span>Vida: {champion.stats.hp}</span>
+                                    <span>Armadura{champion.stats.armor}</span>
+                                    <span>Dano: {champion.stats.attackdamage}</span>
+                                    <span>Velocidade de Ataque: {champion.stats.attackspeed}</span>
+                                    <span>Alcance de Ataque: {champion.stats.attackrange}</span>
+                                    <span>Velocidade de Movimento: {champion.stats.movespeed}</span>
                                 </div>
+
+
+
                                 <div className="infos">
                                     <img src={squareSkin + '.png'} alt="" className='LogoChampion' />
                                     <p className='loreChampion'>Lore: {champion.lore}</p>
                                     <p>Estilo De Jogo: {champion.tags[0]}</p>
                                     <p>Nome da Passiva: {champion.passive.name}</p>
-                                    <p>Descrição da Passiva: {champion.passive.description}</p>
-                                    <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/passive/${champion.image.full}`} alt="" />
-                                    <p>Habilidade_1: {spells[0].name}</p>
-                                    <p>Habilidade_2: {spells[1].name}</p>
-                                    <p>Habilidade_3: {spells[2].name}</p>
-                                    <p>Ultimate: {spells[3].name + '. ' + spells[3].description}</p>
-                                    <p>Estilo De Jogo: {champion.tags}</p>
+                                    <p>Custo: {champion.partype}</p>
+                                    <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/passive/${champion.passive.image.full}`} alt="" className='logoSpells' />
+                                    <p>Descrição da Passiva: <span>{champion.passive.description}</span></p>
+                                    <div className="spells">
+                                        <span>Q: {spells[0].name}</span>
+                                        <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/spell/${spells[0].id}.png`} alt="" className='logoSpells' onClick={() => setShow(true)} />
+                                        <Modal title={spells[0].name} onClose={() => setShow(false)} show={show} >
+                                            <span className='descModalSpan'>Q: {spells[0].description}</span>
+                                        </Modal>
+
+                                        <span>W: {spells[1].name}</span>
+                                        <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/spell/${spells[1].id}.png`} alt="" className='logoSpells' onClick={() => setNextShow(true)} />
+                                        <Modal title={spells[1].name} onClose={() => setNextShow(false)} show={nextShow}>
+                                            <span className='descModalSpan'>W: {spells[1].description}</span>
+                                        </Modal>
+                                        
+                                        <span>E: {spells[2].name}</span>
+                                        <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/spell/${spells[2].id}.png`} alt="" className='logoSpells' onClick={() => setContinueShow(true)} />
+                                        <Modal title={spells[2].name} onClose={() => setContinueShow(false)} show={continueShow}>
+                                            <span className='descModalSpan'>E: {spells[2].description}</span>
+                                        </Modal>
+                                        
+                                        <span>R: {spells[3].name}</span>
+                                        <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/spell/${spells[3].id}.png`} alt="" className='logoSpells' onClick={() => setFinalShow(true)} />
+                                        <Modal title={spells[3].name} onClose={() => setFinalShow(false)} show={finalShow}>
+                                            <span className='descModalSpan'>R: {spells[3].description}</span>
+                                        </Modal>
+
+                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -104,9 +150,6 @@ const Champions = () => {
                                     <li>{champion.enemytips[0]}</li>
                                     <li>{champion.enemytips[1]}</li>
                                 </ul>
-                            </div>
-
-                            <div className="estrategy">
                                 <h2>Estratégias Jogando A Favor</h2>
                                 <ul>
                                     <li>{champion.allytips[0]}</li>
