@@ -59,8 +59,8 @@ const Champions = (props) => {
     ];
 
     const containerStyles = {
-        width: "500px",
-        height: "280px",
+        width: "1550px",
+        height: "900px",
         margin: "0 auto",
     };
 

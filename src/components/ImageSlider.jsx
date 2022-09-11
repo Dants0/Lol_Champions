@@ -1,6 +1,9 @@
 import React,{useState}  from 'react'
 
 const slideStyles = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   width: "100%",
   height: "100%",
   borderRadius: "10px",
@@ -14,9 +17,9 @@ const rightArrowStyles = {
   position: "absolute",
   top: "50%",
   transform: "translate(0, -50%)",
-  right: "32px",
+  right: "-100px",
   fontSize: "45px",
-  color: "#fff",
+  color: "#f1f1f2",
   zIndex: 1,
   cursor: "pointer",
 };
@@ -25,7 +28,7 @@ const leftArrowStyles = {
   position: "absolute",
   top: "50%",
   transform: "translate(0, -50%)",
-  left: "32px",
+  left: "-90px",
   fontSize: "45px",
   color: "#fff",
   zIndex: 1,
@@ -34,6 +37,7 @@ const leftArrowStyles = {
 
 const sliderStyles = {
   position: "relative",
+  width: "100%",
   height: "100%",
 };
 
@@ -43,9 +47,10 @@ const dotsContainerStyles = {
 };
 
 const dotStyle = {
-  margin: "0 3px",
+  margin: "20px 10px",
   cursor: "pointer",
   fontSize: "20px",
+  color: '#f1f1f1',
 };
 
 const ImageSlider = ({ slides }) => {
