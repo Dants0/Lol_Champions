@@ -1,4 +1,4 @@
-import React, { useRef,useState } from 'react'
+import React, { useRef, useState } from 'react'
 import axios from 'axios'
 import './champions.css'
 import Jinx from '../assets/jinxlogo.png'
@@ -64,12 +64,6 @@ const Champions = (props) => {
         margin: "0 auto",
     };
 
-
-    function Title_1(){
-        Titles('Test')
-        return <Modal title={spells[0].name}/>
-    }
-
     return (
         <>
             <div className="container">
@@ -96,12 +90,22 @@ const Champions = (props) => {
                                     <span>Nome: {champion.id}</span>
                                     <span>Titulo: {champion.title}</span>
                                     <img src={splashArt} alt="SplashArt" className="splashArtImg" />
-                                    <span>Vida: {champion.stats.hp}</span>
-                                    <span>Armadura{champion.stats.armor}</span>
-                                    <span>Dano: {champion.stats.attackdamage}</span>
-                                    <span>Velocidade de Ataque: {champion.stats.attackspeed}</span>
-                                    <span>Alcance de Ataque: {champion.stats.attackrange}</span>
-                                    <span>Velocidade de Movimento: {champion.stats.movespeed}</span>
+                                    <div className="statusChampion">
+                                        <span>Vida: {champion.stats.hp}</span>
+                                        <span>Vida por level: {champion.stats.hpperlevel}</span>
+                                        <span>Regeneração de vida: {champion.stats.hpregen}</span>
+                                        <span>Armadura: {champion.stats.armor}</span>
+                                        <span>Armadura por Level: {champion.stats.armorperlevel}</span>
+                                        <span>Dano: {champion.stats.attackdamage}</span>
+                                        <span>Velocidade de Ataque: {champion.stats.attackspeed}</span>
+                                        <span>Velocidade de Ataque por level: {champion.stats.attackspeedperlevel}</span>
+                                        <span>Alcance de Ataque: {champion.stats.attackrange}</span>
+                                        <span>Velocidade de Movimento: {champion.stats.movespeed}</span>
+                                        <span>Ataque: {champion.info.attack}</span>
+                                        <span>Defesa: {champion.info.defense}</span>
+                                        <span>Dificuldade: {champion.info.difficulty}</span>
+                                        <span>Magia: {champion.info.magic}</span>
+                                    </div>
                                 </div>
 
 
@@ -126,13 +130,13 @@ const Champions = (props) => {
                                         <Modal title={spells[1].name} onClose={() => setNextShow(false)} show={nextShow}>
                                             <span className='descModalSpan'>W: {spells[1].description}</span>
                                         </Modal>
-                                        
+
                                         <span>E: {spells[2].name}</span>
                                         <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/spell/${spells[2].id}.png`} alt="" className='logoSpells' onClick={() => setContinueShow(true)} />
                                         <Modal title={spells[2].name} onClose={() => setContinueShow(false)} show={continueShow}>
                                             <span className='descModalSpan'>E: {spells[2].description}</span>
                                         </Modal>
-                                        
+
                                         <span>R: {spells[3].name}</span>
                                         <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/spell/${spells[3].id}.png`} alt="" className='logoSpells' onClick={() => setFinalShow(true)} />
                                         <Modal title={spells[3].name} onClose={() => setFinalShow(false)} show={finalShow}>
@@ -140,7 +144,7 @@ const Champions = (props) => {
                                         </Modal>
 
                                     </div>
-                                    
+
                                 </div>
                             </div>
 

@@ -12,7 +12,7 @@ body{
     background-color: #2c2f3e;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 919px) {
     .App{
         width: 100%;
         display: flex;
@@ -20,4 +20,14 @@ body{
         justify-content: center;
         align-items: center;
     }
-}
+    .championStatus{
+        width: 100%;
+    }
+
+    .estrategy{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+} */

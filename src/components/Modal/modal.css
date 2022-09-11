@@ -7,7 +7,7 @@
     z-index: 1;
     align-items: flex-end;
     justify-content: flex-end;
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .modal-content{
@@ -58,5 +58,6 @@
 .btnCloseModal:hover{
     cursor: pointer;
     transition: all 0.5s ease-in-out;
-    filter: brightness(80%);
+    background-color: #f10e0e;
+    filter: brightness(95%);
 }

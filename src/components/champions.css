@@ -95,7 +95,7 @@
     align-items: center;
     text-align: start;
     font-size: 25px;
-    margin-top: 2rem;
+    padding: 1rem;
 }
 
 .box{
@@ -362,54 +362,17 @@
     }
 }
 
-@media screen and (max-width: 768px) {
-    /* body{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .infos{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .splashArtImg{
-        margin-top: 2rem;
-        width: 25rem;
-        height: 25rem;
-    }
-
-    .championStatus{
-        display: flex;
-        justify-content:center;
-        width: 100%;
-        align-items: center;
-    }
-
-    .contentChampion{
-        display: flex;
-        align-items: center;
-        width: auto;
-    }
-
-    .box{
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-
-    } */
-
+/* @media screen and (max-width: 945px) {
     .footer{
-        width: 100%;
+        width: 50%;
     }
 
     .container{
         width: 100%;
-        margin: auto;
+    }
+    
+    .box{
+        width: 50%;
     }
 
     .wrapper{
@@ -418,8 +381,63 @@
         flex-wrap: wrap;
         width: 100%;
     }
-}
+} */
 
+/* @media screen and (max-width: 1897px){
+
+    .container{
+        display: flex;
+        width: 360px;
+        padding: 0.25rem;
+    }
+
+    .championStatus{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 360px;
+    }
+
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .contentChampion{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 360px;
+    }
+
+
+
+    .estrategy{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 75%;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+} */
+
+.statusChampion{
+    margin-top: 5rem;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
 
 
 span {
@@ -439,14 +457,22 @@ h1:hover {
 
 h2 {
     color: #f1f1f1;
+    margin: 2rem;
 }
 
 ul {
     color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+}
+
+li{
+    text-align: start;
 }
 
 P {
     color: #f1f1f1;
+    margin: 1rem;
 }
 
 a{

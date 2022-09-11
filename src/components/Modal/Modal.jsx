@@ -12,7 +12,6 @@ const Modal = (props) => {
                 <div className="modal-header">
                     <div className="modal-title">
                         {props.title}
-                        {console.log(props)}
                     </div>
                 </div>
                 <div className="modal-body">
