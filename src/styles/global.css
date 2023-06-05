@@ -31,3 +31,11 @@ body{
         align-items: center;
     }
 } */
+
+@media screen and (max-width: 927){
+    .championStatus{
+        display: flex;
+        flex-direction: column;
+        width: 100%;    
+    }
+}

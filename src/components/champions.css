@@ -24,12 +24,12 @@
 }
 
 .LogoChampion {
-    width: 10rem;
+    width: 12rem;
     height: 10rem;
-    padding: 0.75rem;
-    border-radius: 75px;
-    position: relative;
-    animation: slide-logo-champion 1s ease 0s 1 normal forwards;
+    /* padding: 0.75rem; */
+    /* border-radius: 75px; */
+    /* position: relative; */
+    /* animation: slide-logo-champion 1s ease 0s 1 normal forwards; */
 }
 
 .LogoChampion:hover {
@@ -37,6 +37,12 @@
     padding: 0.2rem;
     filter: drop-shadow(4px 2px 12px rgb(146, 141, 141));
     transition: all 0.5s ease-in-out 5s alternate forwards;
+}
+
+.loreAndPhoto{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
 }
 
 .logoSpells{
@@ -119,9 +125,11 @@
 
 .wrapper {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
+    /* border: 1px solid #ccc; */
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    /* height: 100vw; */
+    gap: 20px;
 }
 
 .loreChampion {
@@ -130,7 +138,11 @@
 
 .spells{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 1rem;
+    justify-content: center;
 }
 
 .championStatus {
@@ -145,14 +157,17 @@
     display: flex;
     text-align: justify;
     flex-direction: column;
-    font-size: 20px;
-    padding: 1rem;
-    width: 50rem;
-    height: 120rem;
+    /* align-items: center; */
+    font-size: 14px;
+    border-top: 1px solid #eee;
 }
 
 .descModalSpan{
     color: #000;
+}
+
+.introInfo{
+    /* border: 1px solid #ccc; */
 }
 
 .logoSpells:hover{
@@ -163,9 +178,15 @@
     display: flex;
     flex-direction: column;
     font-size: 26px;
-    width: 70rem;
+    /* border: 1px solid #ccc; */
     align-items: center;
     padding: 1rem;
+    gap: 10px;
+}
+
+.firstContentChampion{
+    display: flex;
+    flex-direction: column;
 }
 
 .footer{
@@ -441,11 +462,11 @@
 } */
 
 .statusChampion{
-    margin-top: 5rem;
-    text-align: start;
+    /* border: 1px solid #ccc; */
+    width: 100%;
+    text-align: justify;
     display: flex;
     flex-direction: column;
-    width: 50%;
 }
 
 

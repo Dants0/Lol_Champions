@@ -64,6 +64,8 @@ const Champions = (props) => {
         margin: "0 auto",
     };
 
+    console.log(spells)
+
     return (
         <>
             <div className="container">
@@ -86,10 +88,12 @@ const Champions = (props) => {
 
                             <div className="wrapper">
                                 <div className="contentChampion">
-                                    <h1 className="titleChampion">Campeão encontrado</h1>
-                                    <span>Nome: {champion.id}</span>
-                                    <span>Titulo: {champion.title}</span>
-                                    <img src={splashArt} alt="SplashArt" className="splashArtImg" />
+                                    <div className="firstContentChampion">
+                                        <h1 className="titleChampion">Campeão encontrado</h1>
+                                        <span>Nome: {champion.id}</span>
+                                        <span>Titulo: {champion.title}</span>
+                                        <img src={splashArt} alt="SplashArt" className="splashArtImg" />
+                                    </div>
                                     <div className="statusChampion">
                                         <span>Vida: {champion.stats.hp}</span>
                                         <span>Vida por level: {champion.stats.hpperlevel}</span>
@@ -111,13 +115,17 @@ const Champions = (props) => {
 
 
                                 <div className="infos">
-                                    <img src={squareSkin + '.png'} alt="" className='LogoChampion' />
-                                    <p className='loreChampion'>Lore: {champion.lore}</p>
-                                    <p>Estilo De Jogo: {champion.tags[0]}</p>
-                                    <p>Nome da Passiva: {champion.passive.name}</p>
-                                    <p>Custo: {champion.partype}</p>
-                                    <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/passive/${champion.passive.image.full}`} alt="" className='logoSpells' />
-                                    <p>Descrição da Passiva: <span>{champion.passive.description}</span></p>
+                                    <div className="loreAndPhoto">
+                                        <img src={squareSkin + '.png'} alt="" className='LogoChampion' />
+                                        <p className='loreChampion'>Lore: {champion.lore}</p>
+                                    </div>
+                                    <div className="introInfo">
+                                        <p>Estilo De Jogo: {champion.tags[0]}</p>
+                                        <p>Nome da Passiva: {champion.passive.name}</p>
+                                        <p>Custo: {champion.partype}</p>
+                                        <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/passive/${champion.passive.image.full}`} alt="" className='logoSpells' />
+                                        <p>Descrição da Passiva: <span>{champion.passive.description}</span></p>
+                                    </div>
                                     <div className="spells">
                                         <span>Q: {spells[0].name}</span>
                                         <img src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/spell/${spells[0].id}.png`} alt="" className='logoSpells' onClick={() => setShow(true)} />
