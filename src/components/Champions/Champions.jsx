@@ -9,6 +9,7 @@ import AllyTips from "../AllyTips/AllyTips";
 import EnemyTips from "../EnemyTips/EnemyTips";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Search } from "lucide-react";
 
 const Champions = () => {
   const [searchText, setSearchText] = useState("");
@@ -40,78 +41,85 @@ const Champions = () => {
     }
   }
 
-  const handleKeyEnter = (e)=> {
-    if(e.code === "Enter"){
-        searchChampion()
+  const handleKeyEnter = (e) => {
+    if (e.code === "Enter") {
+      searchChampion();
     }
-  }
+  };
 
-  console.log(searchText)
+  console.log(searchText);
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>Lolkipedia</h1>
-        <img
-          src={
-            champion
-              ? `https://ddragon.leagueoflegends.com/cdn/14.7.1/img/champion/${champion.name}.png`
-              : JinxLogo
-          }
-          alt="Jinx Logo"
-          className="Logo"
-        />
+        <div className={styles.searchBox}>
+          <input
+            type="text"
+            placeholder="Nome do Campeão"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            onKeyDown={handleKeyEnter}
+            className={styles.championSearch}
+          />
+          <Search
+            onClick={searchChampion}
+            className={styles.searchIcon}
+            color="white"
+          />
+        </div>
+        <img src={JinxLogo} alt="Jinx Logo" className="Logo" />
       </div>
-      <input
-        type="text"
-        placeholder="Nome do Campeão"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-        onKeyDown={handleKeyEnter}
-        className={styles.championSearch}
-      />
-      <button onClick={searchChampion} className={styles.btnSearch}>
-        Pesquisar
-      </button>
 
       <div className={styles.championStatus}>
         {loader ? <p>Loading...</p> : ""}
         {champion && !loader && (
           <div className={styles.containerChampion}>
             <div className={styles.topBox}>
-              <h2>{champion.name}</h2>
-              <p>{champion.title}</p>
+              <div className={styles.card}>
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/champion/${champion.name}.png`}
+                  alt="card image champion"
+                />
+                <div className={styles.cardInformations}>
+                  <h2>{champion.name}</h2>
+                  <p>{champion.title}</p>
+                  <p>Lore: {champion.lore}</p>
+                </div>
+              </div>
+            </div>
+            <div className={styles.middleBoxStatus}>
               <img
                 src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_0.jpg`}
                 alt="Splash Art Champion"
               />
-            </div>
-            <div className={styles.middleBoxStatus}>
-              <h3>Status</h3>
-              <p>Vida: {champion.stats.hp}</p>
-              <p>Vida por level: {champion.stats.hpperlevel}</p>
-              <p>Regeneração de vida: {champion.stats.hpregen}</p>
-              <p>Armadura: {champion.stats.armor}</p>
-              <p>Armadura por Level: {champion.stats.armorperlevel}</p>
-              <p>Dano: {champion.stats.attackdamage}</p>
-              <p>Velocidade de Ataque: {champion.stats.attackspeed}</p>
-              <p>
-                Velocidade de Ataque por level:
-                {champion.stats.attackspeedperlevel}
-              </p>
-              <p>Alcance de Ataque: {champion.stats.attackrange}</p>
-              <p>Velocidade de Movimento: {champion.stats.movespeed}</p>
-              <p>Ataque: {champion.info.attack}</p>
-              <p>Defesa: {champion.info.defense}</p>
-              <p>Dificuldade: {champion.info.difficulty}</p>
-              <p>Magia: {champion.info.magic}</p>
+                <h3>Status</h3>
+              <div className={styles.statusInformations}>
+                <div className={styles.leftInformation}>
+                  <p>Vida: {champion.stats.hp}</p>
+                  <p>Vida por level: {champion.stats.hpperlevel}</p>
+                  <p>Regeneração de vida: {champion.stats.hpregen}</p>
+                  <p>Armadura: {champion.stats.armor}</p>
+                  <p>Armadura por Level: {champion.stats.armorperlevel}</p>
+                  <p>Dano: {champion.stats.attackdamage}</p>
+                  <p>Velocidade de Ataque: {champion.stats.attackspeed}</p>
+                </div>
+                <div className={styles.rightInformation}>
+                  <p>Velocidade de Ataque por level: {champion.stats.attackspeedperlevel}</p>
+                  <p>Alcance de Ataque: {champion.stats.attackrange}</p>
+                  <p>Velocidade de Movimento: {champion.stats.movespeed}</p>
+                  <p>Ataque: {champion.info.attack}</p>
+                  <p>Defesa: {champion.info.defense}</p>
+                  <p>Dificuldade: {champion.info.difficulty}</p>
+                  <p>Magia: {champion.info.magic}</p>
+                </div>
+              </div>
             </div>
             <div className={styles.middleBoxInformations}>
               <img
                 src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/champion/${champion.name}.png`}
                 alt=""
               />
-              <p>Lore: {champion.lore}</p>
               <p>
                 Estilo De Jogo:{" "}
                 {champion.tags.map((item, index) => (
@@ -143,12 +151,16 @@ const Champions = () => {
                 showIndicators={false}
                 infiniteLoop={true}
                 dynamicHeight={false}
+                autoPlay={true}
                 className={styles.mySwiper}
               >
                 {skins.map((item) => (
                   <div key={item.id} className={styles.skins}>
                     <h4>{item.name}</h4>
-                    <img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_${item.num}.jpg`} alt="" />
+                    <img
+                      src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_${item.num}.jpg`}
+                      alt=""
+                    />
                   </div>
                 ))}
               </Carousel>
@@ -156,7 +168,7 @@ const Champions = () => {
           </div>
         )}
         {!champion && !loader && (
-          <>
+          <div className={styles.credits}>
             <div className={styles.box}>
               <a href="https://github.com/Dants0">
                 <img src={GitHubMark} alt="GitHub" className="links" />
@@ -171,7 +183,7 @@ const Champions = () => {
                 <button className="registerBtn">Cadastre-se agora</button>
               </a>
             </footer>
-          </>
+          </div>
         )}
       </div>
     </div>
