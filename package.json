@@ -9,9 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "axios": "^1.6.8",
+    "framer-motion": "^11.0.24",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-responsive-carousel": "^3.2.23",
+    "sass": "^1.74.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",

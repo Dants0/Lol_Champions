@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'LeagueOfLegends';
+  src: url('../assets/fonts/Friz_Quadrata_Regular.ttf')
+}
+
+.container{
+  font-family: 'LeagueOfLegends';
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+    padding: 5px;
+  }
+}

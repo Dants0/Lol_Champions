@@ -1,14 +1,13 @@
-import React from "react"
-import Champions from "./components/Champions"
-import './styles/global.css'
+import React from "react";
+import Champions from "./components/Champions/Champions";
+import "./styles/global.css";
 
 function App() {
-
   return (
     <div className="App">
-      <Champions></Champions>
+      <Champions />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
