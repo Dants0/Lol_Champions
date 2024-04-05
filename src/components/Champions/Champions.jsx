@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styles from "./styles.module.scss";
 import JinxLogo from "../../assets/jinxlogo.png";
@@ -10,6 +10,9 @@ import EnemyTips from "../EnemyTips/EnemyTips";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Search } from "lucide-react";
+import { Spinner } from "@chakra-ui/react";
+import toast from "react-hot-toast";
+import ModalComponent from "../Modal/ModalComponent";
 
 const Champions = () => {
   const [searchText, setSearchText] = useState("");
@@ -24,7 +27,7 @@ const Champions = () => {
     setLoader(true);
     if (!searchText) {
       setLoader(false);
-      alert("Adicione um nome!");
+      toast.error("Adicione um nome antes...")
       return;
     } else {
       const ApiCall = `https://ddragon.leagueoflegends.com/cdn/14.7.1/data/pt_BR/champion/${searchText}.json`;
@@ -36,9 +39,10 @@ const Champions = () => {
         setSkins(data.skins);
         setSpells(data.spells);
         setLoader(false);
+        toast.success("Campeão encontrado! 🎉")
       } catch (err) {
         setLoader(false);
-        alert("Campeão não encontrado");
+        toast.error("Campeão não encontrado! 😓")
       }
     }
   }
@@ -74,7 +78,9 @@ const Champions = () => {
       </div>
 
       <div className={styles.championStatus}>
-        {loader ? <p>Loading...</p> : ""}
+        {loader ? <Spinner
+          color='blue.500'
+        /> : ""}
         {champion && !loader && (
           <div className={styles.containerChampion}>
             <div className={styles.topBox}>
@@ -144,7 +150,7 @@ const Champions = () => {
                 </div>
                 <div className={styles.spells}>
                   {spells.map((item) => ( // Adicionei um index como segundo parâmetro na função de mapeamento
-                    <Spells key={item.id} props={item} />
+                    <ModalComponent props={item}/>
                   ))}
                 </div>
 
@@ -178,13 +184,14 @@ const Champions = () => {
         )}
         {!champion && !loader && (
           <div className={styles.credits}>
-            <h2>Desenvolvido por 
-              <a href="https://www.github.com/Dants0" target="_blank" rel="noreferrer">Gui</a>
+            <h2>Desenvolvido por
+              Guilherme
             </h2>
             <div className={styles.box}>
               <a href="https://github.com/Dants0">
                 <img src={GitHubMark} alt="GitHub" className="links" />
               </a>
+              <a href='https://ko-fi.com/X8X0IUSJV' target='_blank'><img height='36' src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
               <a href="https://www.linkedin.com/in/guilherme-góes-8b72531b0/">
                 <img src={LinkedInIcon} alt="LinkedIn" className="links" />
               </a>
