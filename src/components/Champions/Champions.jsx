@@ -59,7 +59,6 @@ const Champions = () => {
           <input
             type="text"
             placeholder="Nome do Campeão"
-            value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             onKeyDown={handleKeyEnter}
             className={styles.championSearch}
@@ -134,7 +133,6 @@ const Champions = () => {
                   </p>
                 </div>
                 <div className={styles.passive}>
-                  <h3>Spells</h3>
                   <ModalUnique id={champion.id} title={champion.passive.name} description={champion.passive.description} image={champion.passive.image.full} />
                 </div>
                 <div className={styles.spells}>
