@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import styles from "./styles.module.scss";
 import JinxLogo from "../../assets/jinxlogo.png";
@@ -17,6 +17,8 @@ const Champions = () => {
   const [loader, setLoader] = useState(false);
   const [skins, setSkins] = useState([]);
   const [spells, setSpells] = useState([]);
+
+  console.log(spells)
 
   async function searchChampion() {
     setLoader(true);
@@ -141,10 +143,11 @@ const Champions = () => {
                   />
                 </div>
                 <div className={styles.spells}>
-                  {spells.map((item) => (
-                    <Spells props={item} />
+                  {spells.map((item) => ( // Adicionei um index como segundo parâmetro na função de mapeamento
+                    <Spells key={item.id} props={item} />
                   ))}
                 </div>
+
               </div>
               <div className={styles.strategy}>
                 <AllyTips tips={champion.allytips} />
@@ -175,6 +178,9 @@ const Champions = () => {
         )}
         {!champion && !loader && (
           <div className={styles.credits}>
+            <h2>Desenvolvido por 
+              <a href="https://www.github.com/Dants0" target="_blank" rel="noreferrer">Gui</a>
+            </h2>
             <div className={styles.box}>
               <a href="https://github.com/Dants0">
                 <img src={GitHubMark} alt="GitHub" className="links" />
@@ -183,12 +189,6 @@ const Champions = () => {
                 <img src={LinkedInIcon} alt="LinkedIn" className="links" />
               </a>
             </div>
-            <footer>
-              <h3>Não tem conta no jogo?</h3>
-              <a href="https://signup.leagueoflegends.com/pt-br/signup/index#/">
-                <button className="registerBtn">Cadastre-se agora</button>
-              </a>
-            </footer>
           </div>
         )}
       </div>

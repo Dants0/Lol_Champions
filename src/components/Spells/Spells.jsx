@@ -6,9 +6,10 @@ const Spells = ({ props }) => {
   return (
     <div className={styles.containerSpells}>
       <p>{props.name}</p>
+      <p>{props.description}</p>
       <img
         src={`https://ddragon.leagueoflegends.com/cdn/12.14.1/img/spell/${props.id}.png`}
-        alt=""
+        alt="Imagem da habilidade"
       />
     </div>
   );
