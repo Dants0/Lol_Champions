@@ -26,9 +26,13 @@ export default function ModalComponent({ props }) {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent className={styles.modalContent}>
-          <div className={styles.test}>
-          <ModalHeader>{props.name}</ModalHeader>
-          <ModalCloseButton />
+          <div className={styles.wrapperHeaderAndCloseButton}>
+            <ModalHeader>
+              <p>
+                {props.name}
+              </p>
+            </ModalHeader>
+            <ModalCloseButton className={styles.btnClose} />
           </div>
           <ModalBody>
             {props.description}
