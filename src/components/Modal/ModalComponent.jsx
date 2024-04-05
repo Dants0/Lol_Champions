@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react'
 
 import styles from './styles.module.scss'
+import { removeTags } from '../../utils/removeTags'
 
 export default function ModalComponent({ props }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -35,7 +36,7 @@ export default function ModalComponent({ props }) {
             <ModalCloseButton className={styles.btnClose} />
           </div>
           <ModalBody>
-            {props.description}
+            {removeTags(props.description)}
           </ModalBody>
         </ModalContent>
       </Modal>

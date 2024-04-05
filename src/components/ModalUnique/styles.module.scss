@@ -1,0 +1,79 @@
+.containerModal {
+    position: relative; // Adicione position: relative; para o contêinerModal
+  
+    img {
+      box-shadow: -10px 10px 0px #212121, -20px 20px 0px rgba(33, 33, 33, 0.7), -30px 30px 0px rgba(33, 33, 33, 0.4), -40px 40px 0px rgba(33, 33, 33, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+  
+      &:hover {
+        scale: 1.2;
+      }
+    }
+    @media only screen and (min-width: 320px) and (max-width: 425px){
+      width: 100%;
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        box-shadow: none;
+      }
+    }
+  }
+  
+  .modalContent {
+    display: flex;
+    width: 25%;
+    padding: 25px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+    flex-direction: column;
+    position: relative;
+    transform: translate(-50%, -50%);
+    border-bottom-right-radius: 25px;
+    border: 1px solid #212121;
+    @media only screen and (min-width: 320px) and (max-width: 425px){
+        border: 1px solid green;
+        width: 100%;
+      }
+  
+    header {
+      flex: none;
+    }
+  
+    .wrapperHeaderAndCloseButton {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+  
+      p {
+        font-size: 20px;
+        text-align: justify;
+      }
+  
+      .btnClose {
+        width: 35px;
+        height: 35px;
+        border: none;
+        box-shadow: 0 0 3px 0 gray;
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #212121;
+          color: #f1f1f1;
+        }
+      }
+  
+      header {
+        // width: 100rem;
+        display: flex;
+        // border: 1px solid red;
+      }
+    }
+  }

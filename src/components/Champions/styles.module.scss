@@ -5,7 +5,9 @@
 
 .container {
   font-family: "LeagueOfLegends";
-
+  @media only screen and (min-width: 320px) and (max-width: 425px) {
+    width: 100%;
+  }
   .header {
     display: flex;
     align-items: center;
@@ -14,6 +16,18 @@
     padding: 5px;
     height: auto;
     background-color: #2c2f3e;
+
+    @media only screen and (min-width: 320px) and (max-width: 425px){
+        display: flex; 
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        gap: 25px;
+        img{
+          width: 95px;
+          height: 95px;
+        }
+    }
 
     h1 {
       color: #f1f1f1;
@@ -33,12 +47,14 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 1px 0 0 lightgray;
-
+      @media only screen and (min-width: 320px) and (max-width: 425px) {
+        width: 100%;
+      }
       input {
         border: none;
         outline: none;
         height: 25px;
-        width: 85%;
+        width: 100%;
         background-color: transparent;
         color: #f1f1f1;
         font-size: 16px;
@@ -53,7 +69,9 @@
 
   .championStatus {
     height: auto;
-
+    @media only screen and (min-width: 320px) and (max-width: 425px){
+      
+    }
     .containerChampion {
       width: 100%;
       height: auto;
@@ -63,6 +81,9 @@
       background-color: #f1f1f1;
 
       .topBox {
+        @media only screen and (min-width: 320px) and (max-width: 425px){
+          
+        }
         padding: 5px;
         width: 100%;
         display: flex;
@@ -78,6 +99,15 @@
           box-shadow: 0 0 20px 5px #2c2f3e;
           border-radius: 50px;
           gap: 25px;
+          margin-top: 35px;
+          @media only screen and (min-width: 320px) and (max-width: 425px){
+            
+            height: auto;
+            width: 100%;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            padding: 5px;
+          }
 
           .cardInformations {
             width: 80%;
@@ -117,7 +147,12 @@
         align-items: center;
         gap: 20px;
         height: auto;
-
+        @media only screen and (min-width: 320px) and (max-width: 425px){
+          
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
         h3 {
           font-size: 24px;
         }
@@ -131,7 +166,13 @@
           width: 100%;
           justify-content: space-evenly;
           height: auto;
-
+          @media only screen and (min-width: 320px) and (max-width: 425px){
+            
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+          }
           .leftInformation {
             height: 25rem;
             width: 25rem;
@@ -143,6 +184,11 @@
             border-radius: 25px;
             color: #f1f1f1;
             padding: 10px;
+            @media only screen and (min-width: 320px) and (max-width: 425px){
+              border: 1px solid #fff;
+              width: 100%;
+            }
+
           }
 
           .rightInformation {
@@ -156,17 +202,27 @@
             justify-content: space-around;
             background-color: #2c2f3e;
             color: #f1f1f1;
+            @media only screen and (min-width: 320px) and (max-width: 425px){
+              
+              width: 100%;
+            }
           }
         }
       }
 
       .middleBoxInformations {
-        border: 1px solid rebeccapurple;
         background-color: #2c2f3e;
         height: 35rem;
         width: 100%;
         display: flex;
         justify-content: space-between;
+        @media only screen and (min-width: 320px) and (max-width: 425px){
+          
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
 
         .topMiddleBoxInformations {
           padding: 10px;
@@ -175,6 +231,15 @@
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
+          @media only screen and (min-width: 320px) and (max-width: 425px){
+            
+            width: 100%;
+            margin-top: 2px;
+            p{
+              font-size: 18px;
+              text-align: center;
+            }
+          }
 
           .centerMiddleBoxInformations {
             display: flex;
@@ -192,6 +257,9 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
+            @media only screen and (min-width: 320px) and (max-width: 425px){
+              width: 100%;
+            }
           }
 
           .passive {
@@ -199,6 +267,12 @@
             justify-content: center;
             align-items: center;
             gap: 25px;
+            @media only screen and (min-width: 320px) and (max-width: 425px){
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              margin-top: 20px;
+            }
 
             h3,
             p {
@@ -217,6 +291,11 @@
           color: #f1f1f1;
           font-size: 20px;
           padding: 10px;
+          @media only screen and (min-width: 320px) and (max-width: 425px){
+            
+            width: 100%;
+            text-align: justify;
+          }
         }
       }
     }
@@ -230,6 +309,9 @@
       align-items: center;
       gap: 25px;
       .box{
+        @media only screen and (min-width: 320px) and (max-width: 425px){
+          gap: 25px;
+        }
         display: flex;
         gap: 50px;
         align-items: center;

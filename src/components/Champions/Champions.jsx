@@ -13,6 +13,7 @@ import { Search } from "lucide-react";
 import { Spinner } from "@chakra-ui/react";
 import toast from "react-hot-toast";
 import ModalComponent from "../Modal/ModalComponent";
+import ModalUnique from "../ModalUnique/ModalUnique";
 
 const Champions = () => {
   const [searchText, setSearchText] = useState("");
@@ -20,8 +21,6 @@ const Champions = () => {
   const [loader, setLoader] = useState(false);
   const [skins, setSkins] = useState([]);
   const [spells, setSpells] = useState([]);
-
-  console.log(spells)
 
   async function searchChampion() {
     setLoader(true);
@@ -34,7 +33,6 @@ const Champions = () => {
       try {
         const response = await axios.get(ApiCall);
         const data = response.data.data[searchText];
-        console.log(data);
         setChampion(data);
         setSkins(data.skins);
         setSpells(data.spells);
@@ -53,7 +51,7 @@ const Champions = () => {
     }
   };
 
-  console.log(searchText);
+  console.log(champion.passive)
 
   return (
     <div className={styles.container}>
@@ -139,14 +137,7 @@ const Champions = () => {
                 </div>
                 <div className={styles.passive}>
                   <h3>Spells</h3>
-                  <p>Nome da Passiva: {champion.passive.name}</p>
-                  <p>Custo: {champion.partype}</p>
-                  <img
-                    src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/passive/${champion.passive.image.full}`}
-                    alt=""
-                    className="logoSpells"
-                    key={champion.id}
-                  />
+                  <ModalUnique id={champion.id} title={champion.passive.name} description={champion.passive.description} image={champion.passive.image.full} />
                 </div>
                 <div className={styles.spells}>
                   {spells.map((item) => ( // Adicionei um index como segundo parâmetro na função de mapeamento
@@ -171,7 +162,7 @@ const Champions = () => {
               >
                 {skins.map((item) => (
                   <div key={item.id} className={styles.skins}>
-                    <h4>{item.name}</h4>
+                    <h4>{item.name == "default" ? <p>Padrão</p> : <p>{item.name}</p>}</h4>
                     <img
                       src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_${item.num}.jpg`}
                       alt=""
