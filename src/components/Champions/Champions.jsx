@@ -93,7 +93,7 @@ const Champions = () => {
                 src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.name}_0.jpg`}
                 alt="Splash Art Champion"
               />
-                <h3>Status</h3>
+              <h3>Status</h3>
               <div className={styles.statusInformations}>
                 <div className={styles.leftInformation}>
                   <p>Vida: {champion.stats.hp}</p>
@@ -116,29 +116,35 @@ const Champions = () => {
               </div>
             </div>
             <div className={styles.middleBoxInformations}>
-              <img
-                src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/champion/${champion.name}.png`}
-                alt=""
-              />
-              <p>
-                Estilo De Jogo:{" "}
-                {champion.tags.map((item, index) => (
-                  <p key={index}>{item}</p>
-                ))}
-              </p>
-              <p>Nome da Passiva: {champion.passive.name}</p>
-              <p>Custo: {champion.partype}</p>
-              <img
-                src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/passive/${champion.passive.image.full}`}
-                alt=""
-                className="logoSpells"
-                key={champion.id}
-              />
-              <div className={styles.spells}>
-                <h3>Spells</h3>
-                {spells.map((item) => (
-                  <Spells props={item} />
-                ))}
+              <div className={styles.topMiddleBoxInformations}>
+                <div className={styles.centerMiddleBoxInformations}>
+                  <img
+                    src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/champion/${champion.name}.png`}
+                    alt=""
+                  />
+                  <p>
+                    Estilo De Jogo
+                    {champion.tags.map((item, index) => (
+                      <p key={index}>{item}</p>
+                    ))}
+                  </p>
+                </div>
+                <div className={styles.passive}>
+                  <h3>Spells</h3>
+                  <p>Nome da Passiva: {champion.passive.name}</p>
+                  <p>Custo: {champion.partype}</p>
+                  <img
+                    src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/passive/${champion.passive.image.full}`}
+                    alt=""
+                    className="logoSpells"
+                    key={champion.id}
+                  />
+                </div>
+                <div className={styles.spells}>
+                  {spells.map((item) => (
+                    <Spells props={item} />
+                  ))}
+                </div>
               </div>
               <div className={styles.strategy}>
                 <AllyTips tips={champion.allytips} />

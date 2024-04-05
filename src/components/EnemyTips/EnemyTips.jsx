@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 
 const EnemyTips = ({ tips }) => {
   return (
-    <div className={styles.containerAllyTips}>
+    <div className={styles.containerEnemiesTips}>
       <h3>Estratégias Jogando Contra</h3>
       {tips.map((tip, index) => (
         <p key={index}>{tip}</p>
