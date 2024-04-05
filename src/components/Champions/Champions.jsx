@@ -51,8 +51,6 @@ const Champions = () => {
     }
   };
 
-  console.log(champion.passive)
-
   return (
     <div className={styles.container}>
       <div className={styles.header}>
