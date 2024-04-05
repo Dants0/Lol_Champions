@@ -14,6 +14,7 @@ import { Spinner } from "@chakra-ui/react";
 import toast from "react-hot-toast";
 import ModalComponent from "../Modal/ModalComponent";
 import ModalUnique from "../ModalUnique/ModalUnique";
+import {ArrowRight} from 'lucide-react'
 
 const Champions = () => {
   const [searchText, setSearchText] = useState("");
@@ -132,12 +133,16 @@ const Champions = () => {
                     ))}
                   </p>
                 </div>
+                  {/* <ArrowRight color="white"/> */}
+                  <p style={{color: "white"}}>Clicando nos ícones você acessa a descrição deles...</p>
                 <div className={styles.passive}>
                   <ModalUnique id={champion.id} title={champion.passive.name} description={champion.passive.description} image={champion.passive.image.full} />
                 </div>
                 <div className={styles.spells}>
                   {spells.map((item) => ( // Adicionei um index como segundo parâmetro na função de mapeamento
+                    <div className={styles.wrapperSpells}>
                     <ModalComponent props={item}/>
+                    </div>
                   ))}
                 </div>
 
